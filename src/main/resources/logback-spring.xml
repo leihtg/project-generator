@@ -16,7 +16,7 @@
 			</encoder>
 		</appender>
 		<logger name="io.renren" level="trace" />
-		<root level="trace">
+		<root level="debug">
 			<appender-ref ref="CONSOLE" />
 		</root>
 	</springProfile>
