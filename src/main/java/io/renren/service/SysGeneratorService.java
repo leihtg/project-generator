@@ -1,5 +1,7 @@
 package io.renren.service;
 
+import io.renren.common.datasources.DataSourceNames;
+import io.renren.common.datasources.annotation.DataSource;
 import io.renren.dao.SysGeneratorDao;
 import io.renren.utils.GenUtils;
 import org.apache.commons.io.IOUtils;
