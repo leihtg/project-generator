@@ -4,6 +4,7 @@ import io.renren.common.datasources.DataSourceNames;
 import io.renren.common.datasources.annotation.DataSource;
 import io.renren.dao.SysGeneratorDao;
 import io.renren.utils.GenUtils;
+import io.renren.utils.Query;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class SysGeneratorService {
 	@Autowired
 	private SysGeneratorDao sysGeneratorDao;
 
-	public List<Map<String, Object>> queryList(Map<String, Object> map) {
+	public List<Map<String, Object>> queryList(Query map) {
 		return sysGeneratorDao.queryList(map);
 	}
 

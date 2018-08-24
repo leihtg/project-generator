@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="io.renren.dao.ext.ReportDefineAggColumnExtMapper">
+	<select id="query" resultMap="io.renren.dao.ReportDefineAggColumnMapper.baseResultMap"
+		parameterType="io.renren.bean.param.ReportDefineAggColumnParam">
+		SELECT
+		<include refid="io.renren.dao.ReportDefineAggColumnMapper.baseColumnList" />
+		FROM t_report_define_agg_column
+	</select>
+</mapper>

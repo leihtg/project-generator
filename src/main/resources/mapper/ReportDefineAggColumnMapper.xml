@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="io.renren.dao.ReportDefineAggColumnMapper">
+	<resultMap id="baseResultMap" type="io.renren.bean.ReportDefineAggColumn">
+		<result column="F_REPORT_DEF_NAME" property="reportDefName" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_AGG_TABLE" property="aggTable" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_COLUMN_CODE" property="columnCode" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_COLUMN_NAME_EN" property="columnNameEn" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_COLUMN_NAME" property="columnName" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_COLUMN_DESC" property="columnDesc" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_IS_VALID" property="isValid" jdbcType="BIT" javaType="java.lang.Boolean" />
+		<result column="F_IS_SHOW" property="isShow" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<result column="F_SELECT_FIELD" property="selectField" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_SELECT_WAY" property="selectWay" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<result column="F_CALC_FIELD" property="calcField" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_CALC_WAY" property="calcWay" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<result column="F_CALC_TARGET" property="calcTarget" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<result column="F_CALC_FORMULA" property="calcFormula" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_SUB_CALC_FIELD" property="subCalcField" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_SUB_CALC_WAY" property="subCalcWay" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<result column="F_SUB_CALC_FORMULA" property="subCalcFormula" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_RELATION_DIM_FIELDS" property="relationDimFields" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="F_DATA_FORMATTER" property="dataFormatter" jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result column="f_drillable" property="drillable" jdbcType="INTEGER" javaType="java.lang.Integer" />
+	</resultMap>
+	<sql id="baseColumnList">
+		F_REPORT_DEF_NAME,F_AGG_TABLE,F_COLUMN_CODE,F_COLUMN_NAME_EN,F_COLUMN_NAME,F_COLUMN_DESC,F_IS_VALID,F_IS_SHOW,F_SELECT_FIELD,F_SELECT_WAY,F_CALC_FIELD,F_CALC_WAY,F_CALC_TARGET,F_CALC_FORMULA,F_SUB_CALC_FIELD,F_SUB_CALC_WAY,F_SUB_CALC_FORMULA,F_RELATION_DIM_FIELDS,F_DATA_FORMATTER,f_drillable
+	</sql>
+	<sql id="baseColumnListWithPrefix">
+		pre_reportDefineAggColumn.F_REPORT_DEF_NAME,pre_reportDefineAggColumn.F_AGG_TABLE,pre_reportDefineAggColumn.F_COLUMN_CODE,pre_reportDefineAggColumn.F_COLUMN_NAME_EN,pre_reportDefineAggColumn.F_COLUMN_NAME,pre_reportDefineAggColumn.F_COLUMN_DESC,pre_reportDefineAggColumn.F_IS_VALID,pre_reportDefineAggColumn.F_IS_SHOW,pre_reportDefineAggColumn.F_SELECT_FIELD,pre_reportDefineAggColumn.F_SELECT_WAY,pre_reportDefineAggColumn.F_CALC_FIELD,pre_reportDefineAggColumn.F_CALC_WAY,pre_reportDefineAggColumn.F_CALC_TARGET,pre_reportDefineAggColumn.F_CALC_FORMULA,pre_reportDefineAggColumn.F_SUB_CALC_FIELD,pre_reportDefineAggColumn.F_SUB_CALC_WAY,pre_reportDefineAggColumn.F_SUB_CALC_FORMULA,pre_reportDefineAggColumn.F_RELATION_DIM_FIELDS,pre_reportDefineAggColumn.F_DATA_FORMATTER,pre_reportDefineAggColumn.f_drillable
+	</sql>
+    <sql id="pageSQL">
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </sql>
+	<sql id="dynamicUpdateSQL">
+		update t_report_define_agg_column
+		<trim prefix="set" suffixOverrides=",">
+			<if test="reportDefName != null">
+				F_REPORT_DEF_NAME = #{reportDefName, jdbcType=VARCHAR},
+			</if>
+			<if test="aggTable != null">
+				F_AGG_TABLE = #{aggTable, jdbcType=VARCHAR},
+			</if>
+			<if test="columnCode != null">
+				F_COLUMN_CODE = #{columnCode, jdbcType=VARCHAR},
+			</if>
+			<if test="columnNameEn != null">
+				F_COLUMN_NAME_EN = #{columnNameEn, jdbcType=VARCHAR},
+			</if>
+			<if test="columnName != null">
+				F_COLUMN_NAME = #{columnName, jdbcType=VARCHAR},
+			</if>
+			<if test="columnDesc != null">
+				F_COLUMN_DESC = #{columnDesc, jdbcType=VARCHAR},
+			</if>
+			<if test="isValid != null">
+				F_IS_VALID = #{isValid, jdbcType=BIT},
+			</if>
+			<if test="isShow != null">
+				F_IS_SHOW = #{isShow, jdbcType=INTEGER},
+			</if>
+			<if test="selectField != null">
+				F_SELECT_FIELD = #{selectField, jdbcType=VARCHAR},
+			</if>
+			<if test="selectWay != null">
+				F_SELECT_WAY = #{selectWay, jdbcType=INTEGER},
+			</if>
+			<if test="calcField != null">
+				F_CALC_FIELD = #{calcField, jdbcType=VARCHAR},
+			</if>
+			<if test="calcWay != null">
+				F_CALC_WAY = #{calcWay, jdbcType=INTEGER},
+			</if>
+			<if test="calcTarget != null">
+				F_CALC_TARGET = #{calcTarget, jdbcType=INTEGER},
+			</if>
+			<if test="calcFormula != null">
+				F_CALC_FORMULA = #{calcFormula, jdbcType=VARCHAR},
+			</if>
+			<if test="subCalcField != null">
+				F_SUB_CALC_FIELD = #{subCalcField, jdbcType=VARCHAR},
+			</if>
+			<if test="subCalcWay != null">
+				F_SUB_CALC_WAY = #{subCalcWay, jdbcType=INTEGER},
+			</if>
+			<if test="subCalcFormula != null">
+				F_SUB_CALC_FORMULA = #{subCalcFormula, jdbcType=VARCHAR},
+			</if>
+			<if test="relationDimFields != null">
+				F_RELATION_DIM_FIELDS = #{relationDimFields, jdbcType=VARCHAR},
+			</if>
+			<if test="dataFormatter != null">
+				F_DATA_FORMATTER = #{dataFormatter, jdbcType=VARCHAR},
+			</if>
+			<if test="drillable != null">
+				f_drillable = #{drillable, jdbcType=INTEGER},
+			</if>
+		</trim>
+	</sql>
+	<sql id="updateSQL">
+		update t_report_define_agg_column set F_REPORT_DEF_NAME=#{reportDefName,jdbcType=VARCHAR},F_AGG_TABLE=#{aggTable,jdbcType=VARCHAR},F_COLUMN_CODE=#{columnCode,jdbcType=VARCHAR},F_COLUMN_NAME_EN=#{columnNameEn,jdbcType=VARCHAR},F_COLUMN_NAME=#{columnName,jdbcType=VARCHAR},F_COLUMN_DESC=#{columnDesc,jdbcType=VARCHAR},F_IS_VALID=#{isValid,jdbcType=BIT},F_IS_SHOW=#{isShow,jdbcType=INTEGER},F_SELECT_FIELD=#{selectField,jdbcType=VARCHAR},F_SELECT_WAY=#{selectWay,jdbcType=INTEGER},F_CALC_FIELD=#{calcField,jdbcType=VARCHAR},F_CALC_WAY=#{calcWay,jdbcType=INTEGER},F_CALC_TARGET=#{calcTarget,jdbcType=INTEGER},F_CALC_FORMULA=#{calcFormula,jdbcType=VARCHAR},F_SUB_CALC_FIELD=#{subCalcField,jdbcType=VARCHAR},F_SUB_CALC_WAY=#{subCalcWay,jdbcType=INTEGER},F_SUB_CALC_FORMULA=#{subCalcFormula,jdbcType=VARCHAR},F_RELATION_DIM_FIELDS=#{relationDimFields,jdbcType=VARCHAR},F_DATA_FORMATTER=#{dataFormatter,jdbcType=VARCHAR},f_drillable=#{drillable,jdbcType=INTEGER}
+	</sql>
+	<sql id="insertSQL">
+		insert into t_report_define_agg_column (F_REPORT_DEF_NAME,F_AGG_TABLE,F_COLUMN_CODE,F_COLUMN_NAME_EN,F_COLUMN_NAME,F_COLUMN_DESC,F_IS_VALID,F_IS_SHOW,F_SELECT_FIELD,F_SELECT_WAY,F_CALC_FIELD,F_CALC_WAY,F_CALC_TARGET,F_CALC_FORMULA,F_SUB_CALC_FIELD,F_SUB_CALC_WAY,F_SUB_CALC_FORMULA,F_RELATION_DIM_FIELDS,F_DATA_FORMATTER,f_drillable)
+		values(#{reportDefName,jdbcType=VARCHAR},#{aggTable,jdbcType=VARCHAR},#{columnCode,jdbcType=VARCHAR},#{columnNameEn,jdbcType=VARCHAR},#{columnName,jdbcType=VARCHAR},#{columnDesc,jdbcType=VARCHAR},#{isValid,jdbcType=BIT},#{isShow,jdbcType=INTEGER},#{selectField,jdbcType=VARCHAR},#{selectWay,jdbcType=INTEGER},#{calcField,jdbcType=VARCHAR},#{calcWay,jdbcType=INTEGER},#{calcTarget,jdbcType=INTEGER},#{calcFormula,jdbcType=VARCHAR},#{subCalcField,jdbcType=VARCHAR},#{subCalcWay,jdbcType=INTEGER},#{subCalcFormula,jdbcType=VARCHAR},#{relationDimFields,jdbcType=VARCHAR},#{dataFormatter,jdbcType=VARCHAR},#{drillable,jdbcType=INTEGER})
+	</sql>
+	<sql id="querySQL">
+		SELECT
+		<include refid="baseColumnList" />
+		FROM t_report_define_agg_column
+	</sql>
+	<sql id="queryCondition">
+		<trim prefix="WHERE" prefixOverrides="AND">
+			<if test="reportDefName != null">
+				AND F_REPORT_DEF_NAME = #{reportDefName,jdbcType=VARCHAR}
+			</if>
+			<if test="aggTable != null">
+				AND F_AGG_TABLE = #{aggTable,jdbcType=VARCHAR}
+			</if>
+			<if test="columnCode != null">
+				AND F_COLUMN_CODE = #{columnCode,jdbcType=VARCHAR}
+			</if>
+			<if test="columnNameEn != null">
+				AND F_COLUMN_NAME_EN = #{columnNameEn,jdbcType=VARCHAR}
+			</if>
+			<if test="columnName != null">
+				AND F_COLUMN_NAME = #{columnName,jdbcType=VARCHAR}
+			</if>
+			<if test="columnDesc != null">
+				AND F_COLUMN_DESC = #{columnDesc,jdbcType=VARCHAR}
+			</if>
+			<if test="isValid != null">
+				AND F_IS_VALID = #{isValid,jdbcType=BIT}
+			</if>
+			<if test="isShow != null">
+				AND F_IS_SHOW = #{isShow,jdbcType=INTEGER}
+			</if>
+			<if test="selectField != null">
+				AND F_SELECT_FIELD = #{selectField,jdbcType=VARCHAR}
+			</if>
+			<if test="selectWay != null">
+				AND F_SELECT_WAY = #{selectWay,jdbcType=INTEGER}
+			</if>
+			<if test="calcField != null">
+				AND F_CALC_FIELD = #{calcField,jdbcType=VARCHAR}
+			</if>
+			<if test="calcWay != null">
+				AND F_CALC_WAY = #{calcWay,jdbcType=INTEGER}
+			</if>
+			<if test="calcTarget != null">
+				AND F_CALC_TARGET = #{calcTarget,jdbcType=INTEGER}
+			</if>
+			<if test="calcFormula != null">
+				AND F_CALC_FORMULA = #{calcFormula,jdbcType=VARCHAR}
+			</if>
+			<if test="subCalcField != null">
+				AND F_SUB_CALC_FIELD = #{subCalcField,jdbcType=VARCHAR}
+			</if>
+			<if test="subCalcWay != null">
+				AND F_SUB_CALC_WAY = #{subCalcWay,jdbcType=INTEGER}
+			</if>
+			<if test="subCalcFormula != null">
+				AND F_SUB_CALC_FORMULA = #{subCalcFormula,jdbcType=VARCHAR}
+			</if>
+			<if test="relationDimFields != null">
+				AND F_RELATION_DIM_FIELDS = #{relationDimFields,jdbcType=VARCHAR}
+			</if>
+			<if test="dataFormatter != null">
+				AND F_DATA_FORMATTER = #{dataFormatter,jdbcType=VARCHAR}
+			</if>
+			<if test="drillable != null">
+				AND f_drillable = #{drillable,jdbcType=INTEGER}
+			</if>
+		</trim>
+	</sql>
+    <select id="queryTotal" resultType="int">
+    select count(1) from t_report_define_agg_column
+    <trim prefix="where" prefixOverrides="and">
+        <if test="reportDefName != null">
+            AND F_REPORT_DEF_NAME like '%#{reportDefName, jdbcType=VARCHAR}%',
+        </if>
+        <if test="aggTable != null">
+            AND F_AGG_TABLE like '%#{aggTable, jdbcType=VARCHAR}%',
+        </if>
+        <if test="columnCode != null">
+            AND F_COLUMN_CODE like '%#{columnCode, jdbcType=VARCHAR}%',
+        </if>
+        <if test="columnNameEn != null">
+            AND F_COLUMN_NAME_EN like '%#{columnNameEn, jdbcType=VARCHAR}%',
+        </if>
+        <if test="columnName != null">
+            AND F_COLUMN_NAME like '%#{columnName, jdbcType=VARCHAR}%',
+        </if>
+        <if test="columnDesc != null">
+            AND F_COLUMN_DESC like '%#{columnDesc, jdbcType=VARCHAR}%',
+        </if>
+        <if test="isValid != null">
+            AND F_IS_VALID like '%#{isValid, jdbcType=BIT}%',
+        </if>
+        <if test="isShow != null">
+            AND F_IS_SHOW like '%#{isShow, jdbcType=INTEGER}%',
+        </if>
+        <if test="selectField != null">
+            AND F_SELECT_FIELD like '%#{selectField, jdbcType=VARCHAR}%',
+        </if>
+        <if test="selectWay != null">
+            AND F_SELECT_WAY like '%#{selectWay, jdbcType=INTEGER}%',
+        </if>
+        <if test="calcField != null">
+            AND F_CALC_FIELD like '%#{calcField, jdbcType=VARCHAR}%',
+        </if>
+        <if test="calcWay != null">
+            AND F_CALC_WAY like '%#{calcWay, jdbcType=INTEGER}%',
+        </if>
+        <if test="calcTarget != null">
+            AND F_CALC_TARGET like '%#{calcTarget, jdbcType=INTEGER}%',
+        </if>
+        <if test="calcFormula != null">
+            AND F_CALC_FORMULA like '%#{calcFormula, jdbcType=VARCHAR}%',
+        </if>
+        <if test="subCalcField != null">
+            AND F_SUB_CALC_FIELD like '%#{subCalcField, jdbcType=VARCHAR}%',
+        </if>
+        <if test="subCalcWay != null">
+            AND F_SUB_CALC_WAY like '%#{subCalcWay, jdbcType=INTEGER}%',
+        </if>
+        <if test="subCalcFormula != null">
+            AND F_SUB_CALC_FORMULA like '%#{subCalcFormula, jdbcType=VARCHAR}%',
+        </if>
+        <if test="relationDimFields != null">
+            AND F_RELATION_DIM_FIELDS like '%#{relationDimFields, jdbcType=VARCHAR}%',
+        </if>
+        <if test="dataFormatter != null">
+            AND F_DATA_FORMATTER like '%#{dataFormatter, jdbcType=VARCHAR}%',
+        </if>
+        <if test="drillable != null">
+            AND f_drillable like '%#{drillable, jdbcType=INTEGER}%',
+        </if>
+    </trim>
+    </select>
+    <insert id="insert" parameterType="io.renren.bean.ReportDefineAggColumn">
+		<include refid="insertSQL" />
+	</insert>
+	<select id="select" parameterType="io.renren.bean.ReportDefineAggColumn" resultMap="baseResultMap">
+		<include refid="querySQL" />
+		<include refid="queryCondition" />
+		<include refid="pageSQL" />
+	</select>
+
+</mapper>
